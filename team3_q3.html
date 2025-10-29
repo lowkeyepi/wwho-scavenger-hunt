@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 3 - Question 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #4facfe;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            color: #00f2fe;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .background {
+            background: #e6f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4facfe;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #4facfe;
+            background: #e6f7ff;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #00f2fe;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .completion {
+            margin-top: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .completion h2 {
+            margin-top: 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question-number">TEAM 3 - QUESTION 3 of 6</p>
+        <h1>🦠 Ebola Virus Disease</h1>
+        
+        <div class="background">
+            <h3>📚 Background Information</h3>
+            <p>Ebola virus disease (EVD) is a severe, often fatal illness caused by the Ebola virus, first discovered in 1976 near the Ebola River in what is now the Democratic Republic of Congo. The disease causes fever, severe headache, muscle pain, weakness, and in severe cases, bleeding both internally and externally. Ebola spreads through direct contact with blood or body fluids of infected individuals or animals, particularly fruit bats, which are believed to be natural reservoir hosts. The 2014-2016 West Africa outbreak was the largest in history, affecting Guinea, Liberia, and Sierra Leone, with over 28,000 cases. Healthcare workers are at particularly high risk due to their close contact with infected patients. Modern treatment includes supportive care and newer therapies like monoclonal antibodies, and vaccines have been developed that show promising effectiveness.</p>
+        </div>
+        
+        <div class="question">
+            ❓ What is the typical incubation period for Ebola (time between infection and symptoms)?
+        </div>
+        
+        <form id="quizForm">
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="A">
+                    A) 1-3 days
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="B">
+                    B) 2-21 days (average 8-10 days)
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="C">
+                    C) 30-60 days
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="D">
+                    D) Several months
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const resultDiv = document.getElementById('result');
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            if (selected.value === 'B') {
+                resultDiv.className = 'result correct';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>✅ Correct!</h3>
+                    <p>Ebola has an incubation period of 2-21 days, with symptoms typically appearing around 8-10 days after exposure. During the incubation period, people are not contagious - they only become infectious once symptoms develop.</p>
+                    <a href="team3_q4.html" class="next-link">Next Question →</a>
+                `;
+            } else {
+                resultDiv.className = 'result incorrect';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>❌ Not quite!</h3>
+                    <p>Try again! Review the background information for clues.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

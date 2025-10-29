@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 4 - Question 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #43e97b;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            color: #38f9d7;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .background {
+            background: #e6fff9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #43e97b;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #43e97b;
+            background: #e6fff9;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #43e97b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #38f9d7;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .completion {
+            margin-top: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .completion h2 {
+            margin-top: 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question-number">TEAM 4 - QUESTION 6 of 6</p>
+        <h1>🫁 Drug-Resistant Tuberculosis</h1>
+        
+        <div class="background">
+            <h3>📚 Background Information</h3>
+            <p>Tuberculosis (TB) is an ancient infectious disease caused by Mycobacterium tuberculosis that primarily affects the lungs but can affect other parts of the body. While TB has existed for thousands of years, drug-resistant forms have emerged as a major global health threat. Multidrug-resistant TB (MDR-TB) is resistant to at least two of the most powerful first-line anti-TB drugs (isoniazid and rifampicin). Extensively drug-resistant TB (XDR-TB) is resistant to even more drugs, making it extremely difficult to treat. Drug resistance develops when TB treatment is not completed properly, when the wrong medications are used, or when the drug supply is irregular. Treatment for drug-resistant TB can take 18-24 months or longer and involves more toxic medications with serious side effects. The disease spreads through the air when infected individuals cough, sneeze, or speak. Factors contributing to drug-resistant TB include inadequate treatment programs, poor adherence to treatment regimens, and lack of access to proper diagnostics.</p>
+        </div>
+        
+        <div class="question">
+            ❓ What is "latent TB infection"?
+        </div>
+        
+        <form id="quizForm">
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="A">
+                    A) A mild form of active TB
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="B">
+                    B) When TB bacteria are in the body but not causing illness or symptoms
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="C">
+                    C) TB that only affects the lungs
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="D">
+                    D) A vaccine against TB
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const resultDiv = document.getElementById('result');
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            if (selected.value === 'B') {
+                resultDiv.className = 'result correct';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>✅ Correct!</h3>
+                    <p>Latent TB infection occurs when a person has TB bacteria in their body but the bacteria are inactive and don't cause symptoms. People with latent TB are not contagious. However, the bacteria can become active later in life, especially if the immune system weakens. About 5-10% of people with latent TB will develop active TB if not treated.</p>
+                    <div class="completion">
+                        <h2>🎉 Congratulations! 🎉</h2>
+                        <p><strong>Team 4 has completed the scavenger hunt!</strong></p>
+                        <p>You've learned about 6 important emerging and re-emerging infectious diseases. Great work exploring the biology and epidemiology of these global health challenges!</p>
+                        <p style="margin-top: 20px; font-size: 14px;">Report back to your teacher/facilitator!</p>
+                    </div>
+                `;
+            } else {
+                resultDiv.className = 'result incorrect';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>❌ Not quite!</h3>
+                    <p>Try again! Review the background information for clues.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

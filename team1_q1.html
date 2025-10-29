@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 1 - Question 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            color: #764ba2;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .background {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #764ba2;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question-number">TEAM 1 - QUESTION 1 of 6</p>
+        <h1>🦅 H5N1 Avian Influenza (Bird Flu)</h1>
+        
+        <div class="background">
+            <h3>📚 Background Information</h3>
+            <p>H5N1 is a highly pathogenic avian influenza virus that primarily affects birds but can occasionally infect humans who have close contact with infected poultry. First identified in 1996 in geese in China, H5N1 has caused sporadic human infections with a high mortality rate (around 50%). The virus spreads among birds through direct contact and contaminated environments. While human-to-human transmission is extremely rare, public health officials closely monitor H5N1 because influenza viruses can mutate and potentially cause pandemics. Recent outbreaks in wild birds and poultry farms across multiple continents have raised concerns about food security and pandemic preparedness.</p>
+        </div>
+        
+        <div class="question">
+            ❓ What is the primary reason public health officials are concerned about H5N1 avian influenza?
+        </div>
+        
+        <form id="quizForm">
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="A">
+                    A) It has a 100% mortality rate in humans
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="B">
+                    B) It currently spreads easily from person to person
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="C">
+                    C) The virus could mutate to enable efficient human-to-human transmission
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="D">
+                    D) There are no treatments available for H5N1 infection
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const resultDiv = document.getElementById('result');
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            if (selected.value === 'C') {
+                resultDiv.className = 'result correct';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>✅ Correct!</h3>
+                    <p>The main concern is that H5N1 could mutate to allow efficient human-to-human transmission, potentially causing a pandemic. While current human cases are rare and usually linked to direct bird contact, influenza viruses can evolve rapidly.</p>
+                    <a href="team1_q2.html" class="next-link">Next Question →</a>
+                `;
+            } else {
+                resultDiv.className = 'result incorrect';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>❌ Not quite!</h3>
+                    <p>Try again! Think about what makes this virus a potential pandemic threat.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

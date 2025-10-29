@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 1 - Question 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            color: #764ba2;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .background {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #764ba2;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question-number">TEAM 1 - QUESTION 4 of 6</p>
+        <h1>😷 COVID-19</h1>
+        
+        <div class="background">
+            <h3>📚 Background Information</h3>
+            <p>COVID-19 is an infectious disease caused by the SARS-CoV-2 virus, which emerged in late 2019 in Wuhan, China. The virus quickly spread globally, leading to a pandemic that profoundly affected public health, economies, and daily life worldwide. SARS-CoV-2 is primarily transmitted through respiratory droplets and aerosols when infected individuals cough, sneeze, talk, or breathe. The virus belongs to the coronavirus family, which also includes viruses that cause the common cold as well as more severe diseases like SARS and MERS. COVID-19 symptoms range from mild (fever, cough, fatigue) to severe (pneumonia, respiratory failure). The pandemic accelerated vaccine development, with multiple effective vaccines developed in record time using various technologies including mRNA platforms. The virus continues to evolve through mutations, producing new variants that may have different transmissibility or severity.</p>
+        </div>
+        
+        <div class="question">
+            ❓ What is one key reason why COVID-19 was able to spread so rapidly around the world compared to previous coronavirus outbreaks like SARS (2003)?
+        </div>
+        
+        <form id="quizForm">
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="A">
+                    A) COVID-19 is more deadly than SARS, so it killed more people faster
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="B">
+                    B) People with COVID-19 can spread the virus before showing symptoms (pre-symptomatic transmission)
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="C">
+                    C) COVID-19 only spreads through contaminated food
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="D">
+                    D) There are no vaccines for COVID-19
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const resultDiv = document.getElementById('result');
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            if (selected.value === 'B') {
+                resultDiv.className = 'result correct';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>✅ Correct!</h3>
+                    <p>Pre-symptomatic and asymptomatic transmission made COVID-19 much harder to control than SARS. People could unknowingly spread the virus before feeling sick, making it difficult to identify and isolate cases early. With SARS, people were typically contagious only after becoming visibly ill.</p>
+                    <a href="team1_q5.html" class="next-link">Next Question →</a>
+                `;
+            } else {
+                resultDiv.className = 'result incorrect';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>❌ Not quite!</h3>
+                    <p>Try again! Think about what makes it difficult to stop disease transmission when people don't know they're infected.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

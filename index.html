@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scavenger Hunt - Main Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #764ba2;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #764ba2;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .team-card {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .team1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .team2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .team3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .team4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .answer-key-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            max-width: 300px;
+            transition: background 0.3s;
+        }
+        .answer-key-btn:hover {
+            background: #218838;
+        }
+        .instructions {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .instructions ul {
+            line-height: 1.8;
+        }
+        .qr-section {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .qr-section h3 {
+            margin-top: 0;
+            color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦠 Infectious Disease Scavenger Hunt 🦠</h1>
+        <p class="subtitle">High School Public Health Club Activity</p>
+        
+        <div class="instructions">
+            <h3>📋 How to Use This Scavenger Hunt</h3>
+            <ul>
+                <li><strong>4 Teams:</strong> Divide your club into 4 teams with 6 questions each</li>
+                <li><strong>Same Topics, Different Questions:</strong> All teams learn about the same 6 diseases but answer different questions</li>
+                <li><strong>Interactive Format:</strong> Each question has background information, multiple choice options, and instant feedback</li>
+                <li><strong>Mobile-Friendly:</strong> Students can use their phones to access the questions</li>
+                <li><strong>QR Codes:</strong> Create QR codes for each URL to make a physical scavenger hunt experience</li>
+            </ul>
+        </div>
+
+        <div class="qr-section">
+            <h3>📱 Creating QR Codes</h3>
+            <p><strong>To create your physical scavenger hunt:</strong></p>
+            <ol>
+                <li>Host these HTML files on a web server, Google Drive, or use a service like GitHub Pages (free)</li>
+                <li>Use a free QR code generator like <a href="https://www.qr-code-generator.com" target="_blank">qr-code-generator.com</a></li>
+                <li>Generate QR codes for each team's start page URL</li>
+                <li>Print the QR codes and place them around your school</li>
+                <li>Each correct answer will show a link to the next question - generate QR codes for those too!</li>
+            </ol>
+            <p><em>Alternative: Share the links directly via text/email if you prefer a digital-only hunt</em></p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎯 Team Starting Points</div>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                Click to access each team's starting page
+            </p>
+            <div class="team-grid">
+                <a href="team1_start.html" class="team-card team1">
+                    Team 1<br>Start Here
+                </a>
+                <a href="team2_start.html" class="team-card team2">
+                    Team 2<br>Start Here
+                </a>
+                <a href="team3_start.html" class="team-card team3">
+                    Team 3<br>Start Here
+                </a>
+                <a href="team4_start.html" class="team-card team4">
+                    Team 4<br>Start Here
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎓 Diseases Covered</div>
+            <ul style="line-height: 2; font-size: 16px;">
+                <li>🦅 <strong>H5N1 Avian Influenza</strong> - Pandemic potential and zoonotic disease</li>
+                <li>🐒 <strong>Mpox (Monkeypox)</strong> - Re-emerging disease and global spread</li>
+                <li>🦠 <strong>Ebola Virus Disease</strong> - High-consequence pathogens and outbreak response</li>
+                <li>😷 <strong>COVID-19</strong> - Pandemic response and viral evolution</li>
+                <li>🦟 <strong>Dengue Fever</strong> - Vector-borne diseases and climate change</li>
+                <li>🫁 <strong>Drug-Resistant Tuberculosis</strong> - Antimicrobial resistance</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <a href="answer_key.html" class="answer-key-btn">
+                📝 View Teacher Answer Key
+            </a>
+        </div>
+
+        <div class="section">
+            <div class="section-title">💡 Teaching Tips</div>
+            <ul style="line-height: 1.8;">
+                <li>Have teams work together to discuss each question before selecting an answer</li>
+                <li>After the hunt, bring all teams together to discuss what they learned</li>
+                <li>Consider awarding points for speed or accuracy to make it competitive</li>
+                <li>Use the background paragraphs as discussion starters for deeper learning</li>
+                <li>Connect the diseases to current public health news and events</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

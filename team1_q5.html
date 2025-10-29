@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 1 - Question 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            color: #764ba2;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .background {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #764ba2;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question-number">TEAM 1 - QUESTION 5 of 6</p>
+        <h1>🦟 Dengue Fever</h1>
+        
+        <div class="background">
+            <h3>📚 Background Information</h3>
+            <p>Dengue fever is a mosquito-borne viral disease transmitted primarily by Aedes aegypti mosquitoes. The disease is endemic in over 100 tropical and subtropical countries, with approximately half of the world's population at risk. Dengue causes flu-like symptoms including high fever, severe headache, pain behind the eyes, joint and muscle pain, and rash. Most people recover within a week, but some develop severe dengue (previously called dengue hemorrhagic fever), which can be life-threatening and involves plasma leakage, severe bleeding, and organ impairment. Climate change, urbanization, and international travel have contributed to dengue's expansion into new areas, including parts of southern Europe and the southern United States. There are four distinct serotypes of the dengue virus (DENV-1, DENV-2, DENV-3, DENV-4), and infection with one serotype provides lifelong immunity to that serotype but only temporary immunity to the others. Subsequent infections with different serotypes increase the risk of severe disease.</p>
+        </div>
+        
+        <div class="question">
+            ❓ Why is dengue fever considered an emerging threat in new geographic regions?
+        </div>
+        
+        <form id="quizForm">
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="A">
+                    A) The virus recently mutated to infect humans for the first time
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="B">
+                    B) Climate change and urbanization are expanding the range of mosquito vectors
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="C">
+                    C) Dengue is now transmitted person-to-person through coughing
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="D">
+                    D) All mosquito species can now transmit dengue
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const resultDiv = document.getElementById('result');
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            if (selected.value === 'B') {
+                resultDiv.className = 'result correct';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>✅ Correct!</h3>
+                    <p>Climate change is creating warmer temperatures in previously cooler regions, allowing Aedes mosquitoes to survive and breed in new areas. Combined with urbanization and increased travel, dengue is spreading to regions where it was previously uncommon or absent.</p>
+                    <a href="team1_q6.html" class="next-link">Next Question →</a>
+                `;
+            } else {
+                resultDiv.className = 'result incorrect';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>❌ Not quite!</h3>
+                    <p>Try again! Think about environmental factors that affect where mosquitoes can live and breed.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

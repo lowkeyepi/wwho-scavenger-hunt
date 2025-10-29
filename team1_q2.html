@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 1 - Question 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            color: #764ba2;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .background {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #764ba2;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question-number">TEAM 1 - QUESTION 2 of 6</p>
+        <h1>🐒 Mpox (Monkeypox)</h1>
+        
+        <div class="background">
+            <h3>📚 Background Information</h3>
+            <p>Mpox, formerly known as monkeypox, is a viral disease caused by the monkeypox virus, a member of the Orthopoxvirus genus (the same family as smallpox). First discovered in laboratory monkeys in 1958, the disease was historically endemic to Central and West Africa. In 2022, mpox gained global attention when it spread to over 100 countries outside of Africa, primarily affecting communities that had not previously experienced the disease. The virus spreads through close contact with infected individuals, contaminated materials, or infected animals. Symptoms include fever, headache, muscle aches, and a characteristic rash that progresses through several stages. While most cases are mild, the disease can be more severe in children, pregnant individuals, and immunocompromised people.</p>
+        </div>
+        
+        <div class="question">
+            ❓ What makes mpox a "re-emerging" infectious disease rather than a new disease?
+        </div>
+        
+        <form id="quizForm">
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="answer" value="A">
+                    A) It was recently created in a laboratory
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="B">
+                    B) It has existed for decades but recently spread to new geographic areas
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="C">
+                    C) It only affects monkeys, not humans
+                </label>
+                <label class="option">
+                    <input type="radio" name="answer" value="D">
+                    D) It disappeared completely and then was rediscovered
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="answer"]:checked');
+            const resultDiv = document.getElementById('result');
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            if (selected.value === 'B') {
+                resultDiv.className = 'result correct';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>✅ Correct!</h3>
+                    <p>Mpox is considered re-emerging because it has been known since 1958 and was endemic in parts of Africa, but in 2022 it spread globally to regions where it had never been seen before, affecting new populations.</p>
+                    <a href="team1_q3.html" class="next-link">Next Question →</a>
+                `;
+            } else {
+                resultDiv.className = 'result incorrect';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `
+                    <h3>❌ Not quite!</h3>
+                    <p>Try again! Think about the difference between a completely new disease and one that has existed but is spreading in new ways.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
